@@ -1,0 +1,61 @@
+{
+	"name": "vscode-simple-auto-reload",
+	"description": "Auto reload any browser tab after save",
+	"version": "0.0.1",
+	"publisher": "fserb",
+	"repository": "https://github.com/fserb/vscode-simple-auto-reload",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"activationEvents": [
+		"onCommand:vscode-simple-auto-reload.selectTab"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Auto reload command configuration.",
+			"type": "object",
+			"properties": {
+				"simpleautoreload": {
+					"type": "object",
+					"properties": {
+						"host": {
+							"type": "string",
+							"description": "DevTools remote host",
+							"default": "localhost"
+						},
+						"port": {
+							"type": "integer",
+							"description": "DevTools remote port",
+							"default": 9222
+						},
+						"secure": {
+							"type": "boolean",
+							"description": "DevTools remote use HTTPS",
+							"default": false
+						}
+					}
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "vscode-simple-auto-reload.selectTab",
+				"category": "Auto Reload",
+				"title": "Select tab"
+			},
+			{
+				"command": "vscode-simple-auto-reload.stop",
+				"category": "Auto Reload",
+				"title": "Stop"
+			}
+		]
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/vscode": "^1.32.0"
+	},
+	"dependencies": {
+		"chrome-remote-interface": "^0.28.2"
+	}
+}
