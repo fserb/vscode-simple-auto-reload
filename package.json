@@ -1,6 +1,7 @@
 {
 	"name": "vscode-simple-auto-reload",
-	"description": "Auto reload any browser tab after save",
+	"displayName": "Simple Auto Reload",
+	"description": "Auto reload a browser tab after save",
 	"version": "0.10.0",
 	"publisher": "fserb",
 	"repository": "https://github.com/fserb/vscode-simple-auto-reload",
