@@ -38,8 +38,7 @@ const reload = debounce(async () => {
 }, 100);
 
 function activate(context) {
-  config = vscode.workspace.getConfiguration("simpleautoreload");
-
+  config = vscode.workspace.getConfiguration("vscode-simple-auto-reload");
   context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(
     async _doc => {
       console.log("SAVE");

@@ -14,28 +14,22 @@
 	"main": "./extension.js",
 	"contributes": {
 		"configuration": {
-			"title": "Auto reload command configuration.",
-			"type": "object",
+			"title": "Simple Auto Reload",
 			"properties": {
-				"simpleautoreload": {
-					"type": "object",
-					"properties": {
-						"host": {
-							"type": "string",
-							"description": "DevTools remote host",
-							"default": "localhost"
-						},
-						"port": {
-							"type": "integer",
-							"description": "DevTools remote port",
-							"default": 9222
-						},
-						"secure": {
-							"type": "boolean",
-							"description": "DevTools remote use HTTPS",
-							"default": false
-						}
-					}
+				"vscode-simple-auto-reload.host": {
+					"type": "string",
+					"description": "DevTools remote host",
+					"default": "localhost"
+				},
+				"vscode-simple-auto-reload.port": {
+					"type": "integer",
+					"description": "DevTools remote port",
+					"default": 9222
+				},
+				"vscode-simple-auto-reload.secure": {
+					"type": "boolean",
+					"description": "DevTools remote use HTTPS",
+					"default": false
 				}
 			}
 		},

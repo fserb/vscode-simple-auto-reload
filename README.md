@@ -27,3 +27,8 @@ which of the currently open tabs will be reloaded when saving. That's it. Next
 time you save a file, that tab will reload.
 
 If you want to stop reloading, run the command `Auto Reload: stop`.
+
+
+Configuration
+-----
+Host - Host settings for connections are configurable in extension settings. *Please note most browsers require extra configuration for (or in the case of Chrome seem not to allow at all) connections from remote machines, although workarounds do exist.*
