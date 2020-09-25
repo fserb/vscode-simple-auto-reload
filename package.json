@@ -30,6 +30,11 @@
 					"type": "boolean",
 					"description": "DevTools remote use HTTPS",
 					"default": false
+				},
+				"vscode-simple-auto-reload.delay": {
+					"type": "number",
+					"description": "Delay reload after save (ms)",
+					"default": 100
 				}
 			}
 		},

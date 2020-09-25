@@ -31,4 +31,5 @@ If you want to stop reloading, run the command `Auto Reload: stop`.
 
 Configuration
 -----
+Delay - It is possible to delay the reload by a specified amount to allow for any upload/build times that occur after save.
 Host - Host settings for connections are configurable in extension settings. *Please note most browsers require extra configuration for (or in the case of Chrome seem not to allow at all) connections from remote machines, although workarounds do exist.*

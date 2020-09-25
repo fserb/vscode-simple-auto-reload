@@ -28,12 +28,18 @@ function request(obj = {}) {
     "secure": config.secure
   }, obj);
 }
+// Helper method to allow sleep
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 const reload = debounce(async () => {
   if (currentTarget === null) return;
   console.log("RELOAD");
 
   const client = await CDP(request({target: currentTarget}));
+  // Sleep for the requested delay time
+  await sleep(config.delay);
   client.Page.reload();
 }, 100);
 
