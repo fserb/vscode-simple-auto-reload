@@ -27,3 +27,5 @@ which of the currently open tabs will be reloaded when saving. That's it. Next
 time you save a file, that tab will reload.
 
 If you want to stop reloading, run the command `Auto Reload: stop`.
+
+If you need to delay the reload, use the setting `simpleautoreload.delay`.
