@@ -59,5 +59,6 @@
 	},
 	"dependencies": {
 		"chrome-remote-interface": "^0.28.2"
-	}
+	},
+	"extensionKind": ["ui"]
 }
