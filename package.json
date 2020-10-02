@@ -17,26 +17,26 @@
 			"title": "Auto reload command configuration.",
 			"type": "object",
 			"properties": {
-				"simpleautoreload": {
-					"type": "object",
-					"properties": {
-						"host": {
-							"type": "string",
-							"description": "DevTools remote host",
-							"default": "localhost"
-						},
-						"port": {
-							"type": "integer",
-							"description": "DevTools remote port",
-							"default": 9222
-						},
-						"secure": {
-							"type": "boolean",
-							"description": "DevTools remote use HTTPS",
-							"default": false
-						}
-					}
-				}
+				"simpleautoreload.host": {
+                    "type": "string",
+                    "description": "DevTools remote host",
+                    "default": "localhost"
+                },
+                "simpleautoreload.port": {
+                    "type": "integer",
+                    "description": "DevTools remote port",
+                    "default": 9222
+                },
+                "simpleautoreload.secure": {
+                    "type": "boolean",
+                    "description": "DevTools remote use HTTPS",
+                    "default": false
+                },
+                "simpleautoreload.delay": {
+                    "type": "integer",
+                    "description": "Delay before reload, in milliseconds",
+                    "default": 100
+                }
 			}
 		},
 		"commands": [

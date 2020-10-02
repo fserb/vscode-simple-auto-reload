@@ -20,25 +20,30 @@ function debounce(func, wait, immediate = false) {
 
 let currentTarget = null;
 let config = null;
+let reload;
 
 function request(obj = {}) {
   return Object.assign({
-    "host": config.host,
-    "port": config.port,
-    "secure": config.secure
+    "host": config.get('host'),
+    "port": config.get('port'),
+    "secure": config.get('secure')
   }, obj);
 }
 
-const reload = debounce(async () => {
-  if (currentTarget === null) return;
-  console.log("RELOAD");
+function updateConfiguration() {
+    config = vscode.workspace.getConfiguration("simpleautoreload");
 
-  const client = await CDP(request({target: currentTarget}));
-  client.Page.reload();
-}, 100);
+    reload = debounce(async () => {
+        if (currentTarget === null) return;
+        console.log("RELOAD");
+
+        const client = await CDP(request({target: currentTarget}));
+        client.Page.reload();
+    }, config.get('delay'));
+}
 
 function activate(context) {
-  config = vscode.workspace.getConfiguration("simpleautoreload");
+  updateConfiguration();
 
   context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(
     async _doc => {
@@ -70,6 +75,11 @@ function activate(context) {
       currentTarget = null;
       vscode.window.showInformationMessage('Auto reload stopped');
     }));
+
+  context.subscriptions.push(vscode.workspace.onDidChangeConfiguration(async () => {
+    console.log("CONFIGURATION CHANGED");
+    updateConfiguration();
+  }));
 }
 
 // this method is called when your extension is deactivated
