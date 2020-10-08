@@ -29,3 +29,7 @@ time you save a file, that tab will reload.
 If you want to stop reloading, run the command `Auto Reload: stop`.
 
 If you need to delay the reload, use the setting `simpleautoreload.delay`.
+
+Remote Development Environments
+-----
+The extension runs locally in the UI environment so is automatically fully compatible with VS Code's Remote Development options provided the browser is on the same machine as the VS Code UI interface.
