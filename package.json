@@ -34,6 +34,11 @@
 							"type": "boolean",
 							"description": "DevTools remote use HTTPS",
 							"default": false
+						},
+						"delay": {
+							"type": "integer",
+							"description": "Delay to reload, in ms",
+							"default": 100
 						}
 					}
 				}

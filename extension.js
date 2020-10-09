@@ -29,20 +29,20 @@ function request(obj = {}) {
   }, obj);
 }
 
-const reload = debounce(async () => {
-  if (currentTarget === null) return;
-  console.log("RELOAD");
-
-  const client = await CDP(request({target: currentTarget}));
-  client.Page.reload();
-}, 100);
+let reload = null;
 
 function activate(context) {
   config = vscode.workspace.getConfiguration("simpleautoreload");
 
+  reload = debounce(async () => {
+    if (currentTarget === null) return;
+
+    const client = await CDP(request({target: currentTarget}));
+    client.Page.reload();
+  }, config.delay);
+
   context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(
     async _doc => {
-      console.log("SAVE");
       if (currentTarget === null) return;
       reload();
     }));
@@ -58,7 +58,6 @@ function activate(context) {
       }; });
 
       const sel = await vscode.window.showQuickPick(items);
-      console.log(sel);
       if (sel) {
         vscode.window.showInformationMessage('Auto reloading: ' + sel.label);
         currentTarget = sel.wsurl;
